@@ -24,31 +24,37 @@ Logical Network Diagram
 
 text
                     🛜 (Isolated)
-    ____________________________________________
-    |                  Lab Network             |
-    |          192.168.56.0/24                 |
-    |                                          |
+    _______________________________________________
+    |                  Lab Network                |
+    |               192.168.56.0/24               |
+    |                                             |
     |  [WinSrv-22]--------[Win10]--------[Ubuntu] |
     |    DC01        |    CLIENT01    |   WEB01   |
     |   (AD, DNS)    |                | (Apache,  |
     |      |         |                |  FTP)     |
     |      |         |                |           |
-    |      -------------[SIEM]-------------      |
-    |               (Wazuh)                      |
-    |           192.168.56.15                    |
-    |____________________________________________|
+    |      -------------[SIEM]-------------       |
+    |                  (Wazuh)                    |
+    |               192.168.56.15                 |
+    |_____________________________________________|
                             |
                     [Kali Linux]
                     (Attacker)
                     192.168.56.200
+
+                    
 🔧 System Specifications
-Role	OS	IP Address	CPU	RAM	Storage	Purpose
-Domain Controller	Windows Server 2022	192.168.56.10	2	4 GB	40 GB	Active Directory, DNS, DHCP - Heart of the network.
-Workstation	Windows 10/11	192.168.56.101	2	2-4 GB	30 GB	Domain-joined client simulating an employee workstation.
-Web Server	Ubuntu Server 22.04	192.168.56.20	2	2 GB	25 GB	Runs vulnerable services (Apache, FTP, Samba) for attack practice.
-SIEM Server	Ubuntu Server 22.04	192.168.56.15	2	8 GB	50 GB	Wazuh SIEM for central log collection, monitoring, and alerting.
-Attacker	Kali Linux	192.168.56.200	2	4 GB	25 GB	Platform for launching penetration tests and simulated attacks.
+
+Role	              OS	                   IP Address	   CPU	   RAM	   Storage	          Purpose
+Domain Controller	Windows Server 2022	      192.168.56.10	    2	  4 GB	    40 GB	     Active Directory, DNS, DHCP - Heart of the network.
+Workstation	        Windows 10/11	          192.168.56.101	2	  2-4 GB	30 GB	     Domain-joined client simulating an employee workstation.
+Web Server	        Ubuntu Server 22.04	      192.168.56.20	    2	  2 GB	    25 GB	     Runs vulnerable services (Apache, FTP, Samba) for attack practice.
+SIEM Server	        Ubuntu Server 22.04	      192.168.56.15	    2	  8 GB	    50 GB	     Wazuh SIEM for central log collection, monitoring, and alerting.
+Attacker	        Kali Linux	              192.168.56.200	2	  4 GB	    25 GB	     Platform for launching penetration tests and simulated attacks.
+
+
 ⚙️ Core Technologies Used
+
 Virtualization: Oracle VM VirtualBox
 
 Network Isolation: VirtualBox Host-Only Networking (vboxnet0)
@@ -62,7 +68,9 @@ Endpoint Operating Systems: Windows Server 2022, Windows 10/11, Ubuntu Server 22
 Penetration Testing: Kali Linux
 
 🚀 Getting Started
+
 Prerequisites
+
 Oracle VM VirtualBox
 
 At least 16 GB of RAM (recommended), 8 GB minimum
@@ -128,5 +136,6 @@ This is a personal learning project. Feel free to fork the repository and adapt 
 
 📜 License
 This project is licensed for learning and personal use.
+
 
 Refer to Screenshot folder for some screenshots
