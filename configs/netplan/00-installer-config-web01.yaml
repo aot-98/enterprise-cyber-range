@@ -1,0 +1,15 @@
+# WEB01 Server Network Configuration  
+# Location: /etc/netplan/00-installer-config.yaml
+# Purpose: Static IP for vulnerable web server on lab network
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    ens18:
+      dhcp4: no
+      addresses: [192.168.56.20/24]
+      nameservers:
+        addresses: [192.168.56.10]  # Points to DC01 for DNS resolution
+      routes:
+        - to: default
+          via: 192.168.56.1
